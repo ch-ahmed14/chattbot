@@ -1,11 +1,35 @@
 {
     "intents": [
-      {
-        "tag": "greeting",
-        "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
-        "responses": ["Hello", "Hi", "Hi there", "Yes, I'm there!"]
-      }
-      
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "Is anyone there?",
+                "Hello",
+                "Hay",
+                "Good morning",
+                "Good afternoon",
+                "Good evening",
+                "What's up?",
+                "Howdy",
+                "Greetings",
+                "Hey there",
+                "Hi there",
+                "good"
+            ],
+            "responses": [
+                "Hello!",
+                "Hi there!",
+                "Hey!",
+                "Yes, I'm here. How can I help you?",
+                "Greetings!",
+                "Hi! How can I assist you today?",
+                "Hello! What can I do for you?",
+                "Hey! What’s up?",
+                "Hi! How’s it going?",
+                "Hello! How are you doing today?"
+            ]
+        }
     ]
-  }
-  
+}
