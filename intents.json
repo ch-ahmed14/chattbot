@@ -1,7 +1,11 @@
-{"intents": [
-    {"tag": "greetings",
-    "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
-    "responses": ["Hello", "Hi", "Hi there"]
-    }
-]
-}
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
+        "responses": ["Hello", "Hi", "Hi there", "Yes, I'm there!"]
+      }
+      
+    ]
+  }
+  
