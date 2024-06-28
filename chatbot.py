@@ -22,11 +22,11 @@ words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.h5')
 
-# Compile the model
+
 sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-# Dummy evaluation to ensure metrics are built
+
 dummy_x = np.zeros((1, len(words)))
 dummy_y = np.zeros((1, len(classes)))
 model.evaluate(dummy_x, dummy_y, verbose=0)
@@ -66,7 +66,7 @@ def get_response(intents_list, intents_json):
             break
     return result
 
-# Interactive loop for chatting with the bot
+
 if __name__ == "__main__":
     print("Chatbot is ready! Type 'exit' to end the chat.")
     try:
