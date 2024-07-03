@@ -30,6 +30,60 @@
                 "Hi! How’s it going?",
                 "Hello! How are you doing today?"
             ]
+        },
+        {
+            "tag": "farewell",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Take care",
+                "See ya",
+                "Have a nice day",
+                "Catch you later",
+                "Talk to you later",
+                "Farewell",
+                "Bye for now"
+            ],
+            "responses": [
+                "Goodbye!",
+                "See you later!",
+                "Take care!",
+                "Bye! Have a nice day!",
+                "Farewell!",
+                "Catch you later!",
+                "Talk to you soon!",
+                "Bye for now!",
+                "Have a great day!",
+                "See you next time!"
+            ]
+        },
+        {
+            "tag": "thank_you",
+            "patterns": [
+                "Thank you",
+                "Thanks",
+                "Thanks a lot",
+                "Thank you very much",
+                "Many thanks",
+                "I appreciate it",
+                "Much appreciated",
+                "Thank you so much",
+                "Thanks a ton",
+                "Thanks for your help"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "My pleasure!",
+                "You're welcome! I'm here to help.",
+                "Anytime!",
+                "Glad to assist!",
+                "You're welcome! Let me know if you need anything else.",
+                "No worries!",
+                "Happy to help!",
+                "You're welcome! Feel free to ask anything else."
+            ]
         }
     ]
 }
