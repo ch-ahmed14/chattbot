@@ -24,26 +24,23 @@ words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.h5')
 
-# Assuming 'words' should match the number of features expected by your model
+
 input_dim = len(words)
 
-# Modify the dummy_x initialization based on the expected input shape
 dummy_x = np.zeros((1, input_dim))
 
-# Ensure your model's architecture is correctly set up
-# Note: Remove the input_shape argument from the first Dense layer
+
 model = Sequential([
     Dense(64, activation='relu'),
     Dense(32, activation='relu'),
-    Dense(len(classes), activation='softmax')  # Adjust output_dim to match len(classes)
+    Dense(len(classes), activation='softmax') 
 ])
 
 # Compile the model with appropriate optimizer and loss function
 sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-# Now, you can evaluate the model with the correct input shape and dummy_y
-dummy_y = np.array([[0, 0, 0, 1]])  # Example: one-hot encoded target for a single instance
+dummy_y = np.array([[0, 0, 0, 1]])  
 
 model.evaluate(dummy_x, dummy_y, verbose=0)
 
