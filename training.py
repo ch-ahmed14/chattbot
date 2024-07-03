@@ -21,6 +21,7 @@ intents = json.loads(open('intents.json').read())
 with open('cleaned_text.txt', 'r', encoding='utf-8') as f:
     extracted_text = f.read()
 
+
 # Initialize data structures
 words = []
 classes = []
