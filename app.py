@@ -49,7 +49,7 @@ def predict_class(sentence):
         return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
-def get_response(intents_list, cleaned_text, intents_json ):
+def get_response(intents_list,  intents_json ):
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
