@@ -1,7 +1,7 @@
-from PyPDF2 import PdfReader
-import pdfplumber
-import fitz
 import re
+import pdfplumber
+from PyPDF2 import PdfReader
+import fitz
 
 def preprocess_text(text):
     text = text.lower()
@@ -15,7 +15,6 @@ def extract_text_from_pdf(pdf_path):
 
     # Extract text using PyPDF2
     reader = PdfReader(pdf_path)
-    print(len(reader.pages))
     for i in range(len(reader.pages)):
         page = reader.pages[i]
         all_text += page.extract_text()
@@ -36,9 +35,3 @@ def extract_text_from_pdf(pdf_path):
 
     cleaned_text = preprocess_text(all_text)
     return cleaned_text
-
-if __name__ == "__main__":
-    pdf_path = r'C:\Users\pc\Desktop\work of stage\file - Copy.pdf'
-    cleaned_text = extract_text_from_pdf(pdf_path)
-    with open('cleaned_text.txt', 'w', encoding='utf-8') as f:
-        f.write(cleaned_text)
