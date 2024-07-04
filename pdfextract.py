@@ -13,7 +13,6 @@ def preprocess_text(text):
 def extract_text_from_pdf(pdf_path):
     all_text = ""
 
-    # Extract text using PyPDF2
     reader = PdfReader(pdf_path)
     for i in range(len(reader.pages)):
         page = reader.pages[i]
