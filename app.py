@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import numpy as np
 import pickle
@@ -49,7 +48,7 @@ def predict_class(sentence):
         return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
-def get_response(intents_list,  intents_json ):
+def get_response(intents_list,  intents_json, pdf_text ):
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
@@ -57,20 +56,21 @@ def get_response(intents_list,  intents_json ):
             result = random.choice(i['responses'])
             break
     return result
+    
 
 def main():
     st.title("MasterPDF")
     st.write("Welcome to MasterPDF. Ask me anything based on the uploaded PDF content.")
 
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
-
+    pdf_text = ""
     if uploaded_file is not None:
         with open("uploaded_file.pdf", "wb") as f:
             f.write(uploaded_file.getbuffer())
-        cleaned_text = extract_text_from_pdf("uploaded_file.pdf")
+        pdf_text = extract_text_from_pdf("uploaded_file.pdf")
         st.write("PDF content processed. You can now ask questions based on the PDF content.")
         with open('cleaned_text.txt', 'w', encoding='utf-8') as f:
-            f.write(cleaned_text)
+            f.write(pdf_text)
 
     if 'chat_history' not in st.session_state:
         st.session_state['chat_history'] = []
@@ -81,7 +81,7 @@ def main():
         st.session_state['chat_history'].append(f"You: {user_input}")
         intents_list = predict_class(user_input)
         if intents_list:
-            response = get_response(intents_list, intents)
+            response = get_response(intents_list, intents, pdf_text )
             st.session_state['chat_history'].append(f"Bot: {response}")
         else:
             st.session_state['chat_history'].append("Bot: I'm not sure how to respond to that.")

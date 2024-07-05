@@ -78,7 +78,7 @@ def predict_class(sentence):
 
 
 
-def get_response(intents_list, intents_json):
+def get_response(intents_list, intents_json ):
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
@@ -86,6 +86,7 @@ def get_response(intents_list, intents_json):
             result = random.choice(i['responses'])
             break
     return result
+   
 
 if __name__ == "__main__":
     print("Chatbot is ready! Type 'exit' to end the chat.")
