@@ -13,15 +13,15 @@ def preprocess_text(text):
 def extract_text_from_pdf(pdf_path):
     all_text = ""
 
+    # Extract text using PdfReader from PyPDF2
     reader = PdfReader(pdf_path)
-    for i in range(len(reader.pages)):
-        page = reader.pages[i]
+    for page in reader.pages:
         all_text += page.extract_text()
 
     # Extract tables using pdfplumber
     with pdfplumber.open(pdf_path) as pdf:
-        for i in pdf.pages:
-            tables = i.extract_tables()
+        for page in pdf.pages:
+            tables = page.extract_tables()
             for table in tables:
                 all_text += str(table)
 

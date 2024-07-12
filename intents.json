@@ -22,13 +22,38 @@
                 "Hello!",
                 "Hi there!",
                 "Hey!",
-                "Yes, I'm here. How can I help you?",
+               
                 "Greetings!",
-                "Hi! How can I assist you today?",
-                "Hello! What can I do for you?",
+
                 "Hey! What’s up?",
                 "Hi! How’s it going?",
                 "Hello! How are you doing today?"
+            ]
+        },
+        {
+            "tag": "help",
+            "patterns": [
+                "help",
+                "support",
+                "how to",
+                "assistance",
+                "I need help",
+                "Can you help me?",
+                "Help me with something",
+                "I need some assistance"
+
+                
+            ],
+            "responses": [
+                "Sure, what do you need help with?",
+                "I'm here to help. What can I assist you with?",
+                "Yes, I'm here to help. How can I assist you?",
+                "I'm here to help. What can I do for you?",
+                "I'm here to help. How can I help you?",
+                "I'm here to help. What do you need help with?",
+                "I'm here to help. Can you help me with something?",
+                "I'm here to help. I need some assistance?"
+                
             ]
         },
         {

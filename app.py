@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import pickle
-import os
 import random
 import json
 import nltk
@@ -14,13 +13,9 @@ nltk.download('punkt')
 nltk.download('wordnet')
 
 lemmatizer = WordNetLemmatizer()
-
-
 model = load_model('chatbot_model_with_pdf.h5')
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
-
-
 intents = json.loads(open('intents.json').read())
 
 def clean_up_sentence(sentence):
@@ -48,7 +43,7 @@ def predict_class(sentence):
         return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
     return return_list
 
-def get_response(intents_list,  intents_json, pdf_text ):
+def get_response(intents_list, intents_json,  pdf_text ):
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
@@ -56,7 +51,6 @@ def get_response(intents_list,  intents_json, pdf_text ):
             result = random.choice(i['responses'])
             break
     return result
-    
 
 def main():
     st.title("MasterPDF")
@@ -81,7 +75,7 @@ def main():
         st.session_state['chat_history'].append(f"You: {user_input}")
         intents_list = predict_class(user_input)
         if intents_list:
-            response = get_response(intents_list, intents, pdf_text )
+            response = get_response(intents_list, intents, pdf_text)
             st.session_state['chat_history'].append(f"Bot: {response}")
         else:
             st.session_state['chat_history'].append("Bot: I'm not sure how to respond to that.")
